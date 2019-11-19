@@ -1,0 +1,119 @@
+body {
+    background-color: #9defab;
+}
+
+
+.buttons button {
+    color: #2c8862;
+    border-radius: 15px;
+    font-family: cursive;
+    width: 197px;
+    outline: none;
+    background-color: #ffffffd1;
+    border: none;
+    font-size: 20px;
+    height: 35px;
+}
+
+.buttons {
+    position: inherit;
+    height: 220px;
+    display: inline-block;
+    width: 30%;
+    margin-left: 5%;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: #00000075;
+}
+
+.resultDiv{
+    color: #e0e8e2;
+    font-family: cursive;
+    text-align: center;
+    font-size: 37px
+}
+
+#result{
+    margin: unset;
+}
+
+#ticTac {
+    position: inherit;
+    display: inline-flex;
+    flex-wrap: wrap;
+    height: 400px;
+    width: 35%;
+    margin-left: 15%;
+}
+
+#ticTac div {
+    height: 33%;
+    width: 32%;
+    text-align: center;
+    font-size: 110px;
+    color: #2c8862;
+    font-family: cursive;
+}
+
+#ticTac div p {
+    position: inherit;
+    font-size: 95px;
+    margin: unset;
+}
+
+#text {
+    font-size: 50px;
+    text-align: center;
+    color: #2c8862;
+    font-family: cursive;
+}
+
+#div1 {
+    border-right: 3px solid;
+    border-bottom: 3px solid;
+}
+
+#div2 {
+    border-bottom: 3px solid;
+    border-left: 3px solid;
+    border-right: 3px solid;
+}
+
+#div3 {
+    border-bottom: 3px solid;
+    border-left: 3px solid;
+
+}
+
+#div4 {
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+    border-top: 3px solid;
+}
+
+#div5 {
+    border: 3px solid;
+}
+
+#div6 {
+    border-bottom: 3px solid;
+    border-left: 3px solid;
+    border-top: 3px solid;
+}
+
+#div7 {
+    border-right: 3px solid;
+    border-top: 3px solid;
+}
+
+#div8 {
+    border-left: 3px solid;
+    border-right: 3px solid;
+    border-top: 3px solid;
+}
+
+#div9 {
+    border-left: 3px solid;
+    border-top: 3px solid;
+}
+
