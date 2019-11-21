@@ -94,9 +94,9 @@ function check(y) {
 
 function won(z, q, c, y) {
 
-    z.style.backgroundColor = "#228b22b0";
-    q.style.backgroundColor = "#228b22b0";
-    c.style.backgroundColor = "#228b22b0";
+    z.style.backgroundColor = "rgba(44,136,98,0.69)";
+    q.style.backgroundColor = "rgba(44,136,98,0.69)";
+    c.style.backgroundColor = "rgba(44,136,98,0.69)";
     if (y == "X") {
         x = x + 1;
         result.innerHTML = user1 +": "+ x + "<br>" + user2 +": " + o;
@@ -131,18 +131,6 @@ function reset(a) {
 
 }
 
-// function playComp() {
-//     if (computer) {
-//         computer = false;
-//         document.getElementById("computer").innerHTML = "Play with computer"
-//
-//
-//     } else {
-//         document.getElementById("computer").innerHTML = "Play with friend";
-//
-//     }
-//
-// }
 
 function compCheck() {
 
