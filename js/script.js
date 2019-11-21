@@ -11,26 +11,42 @@ var div9 = document.getElementById("div9");
 var result = document.getElementById("result");
 var parent = document.getElementById("ticTac");
 var counter = 0;
+var user1;
+var user2;
 var x = 0;
 var o = 0;
+var computer = false;
 
 
 function cheking(a) {
-    if (counter % 2 == 0) {
+    if (!computer) {
+        if (counter % 2 == 0) {
+            text.innerHTML = "player's move O";
+            a.style.pointerEvents = "none";
+            a.childNodes[0].innerHTML = "X";
+            a.childNodes[0].style.color = "brown";
+            counter = counter + 1;
+            check("X");
+        } else {
+            text.innerHTML = "player's move X";
+            a.style.pointerEvents = "none";
+            a.childNodes[0].innerHTML = "O";
+            a.childNodes[0].style.color = "darkcyan";
+            counter = counter + 1;
+            check("O");
+        }
+    } else {
         text.innerHTML = "player's move O";
         a.style.pointerEvents = "none";
         a.childNodes[0].innerHTML = "X";
         a.childNodes[0].style.color = "brown";
         counter = counter + 1;
         check("X");
-    } else {
         text.innerHTML = "player's move X";
-        a.style.pointerEvents = "none";
-        a.childNodes[0].innerHTML = "O";
-        a.childNodes[0].style.color = "darkcyan";
-        counter = counter + 1;
-        check("O");
+
+
     }
+
 
 }
 
@@ -66,6 +82,12 @@ function check(y) {
         text.innerHTML = "Player " + y + " Won!";
         won(div3, div6, div9, y);
 
+    }else if (computer && counter%2==1){
+        setTimeout(function () {
+            compCheck()
+
+        }, 200);
+
     }
 
 }
@@ -77,29 +99,103 @@ function won(z, q, c, y) {
     c.style.backgroundColor = "#228b22b0";
     if (y == "X") {
         x = x + 1;
-        result.innerHTML = "X:" + x + " / " + "O:" + o;
+        result.innerHTML = user1 +": "+ x + "<br>" + user2 +": " + o;
 
     } else {
         o = o + 1;
-        result.innerHTML = "X:" + x + " / " + "O:" + o;
+        result.innerHTML = user1 +": "+ x + "<br>" + user2 +": " + o;
     }
 
     parent.style.pointerEvents = "none";
+    reset();
 
+}
+
+function reset(a) {
+    if (a == "all") {
+        x = 0;
+        o = 0;
+        result.innerHTML = user1 +": "+ x + "<br>" + user2 +": " + o;
+    }
     setTimeout(function () {
-        z.style.backgroundColor = "#228b2100";
-        q.style.backgroundColor = "#228b2100";
-        c.style.backgroundColor = "#228b2100";
-        for (var i = 0; i < parent.childElementCount; i++){
+        for (var i = 0; i < parent.childElementCount; i++) {
             parent.children[i].style.pointerEvents = "auto";
-            parent.children[i].children[0].innerHTML="";
+            parent.children[i].style.backgroundColor = "#228b2100";
+            parent.children[i].children[0].innerHTML = "";
         }
         parent.style.pointerEvents = "auto";
-        text.innerHTML="Play Game"
+        text.innerHTML = "Play Game"
+        counter = 0;
 
     }, 2000);
 
+}
 
+// function playComp() {
+//     if (computer) {
+//         computer = false;
+//         document.getElementById("computer").innerHTML = "Play with computer"
+//
+//
+//     } else {
+//         document.getElementById("computer").innerHTML = "Play with friend";
+//
+//     }
+//
+// }
+
+function compCheck() {
+
+        var random = Math.floor(Math.random() * parent.childElementCount);
+        if (parent.children[random].children[0].innerText == "") {
+            parent.children[random].style.pointerEvents = "none";
+            parent.children[random].children[0].innerHTML = "O";
+            parent.children[random].children[0].style.color = "darkcyan";
+            counter = counter + 1;
+            check("O");
+        } else if (counter < parent.childElementCount) {
+            compCheck();
+        } else {
+            text.innerHTML = "Game Over (";
+
+            setTimeout(function () {
+                reset()
+
+            }, 2000);
+
+        }
 
 
 }
+
+function getUser() {
+    document.getElementById("setting").style.display="none";
+    document.getElementById("head").style.display="block";
+     user1 = document.forms["myForm"]["user1"].value;
+    user2 = document.forms["myForm"]["user2"].value;
+    result.innerHTML = user1 +": "+ x + "<br>" + user2 +": " + o;
+
+    console.log(user2)
+
+    if (document.getElementById("comp").checked==true) {
+        computer = true;
+    }
+
+
+}
+function inputDisable(a) {
+var user2Input=document.getElementById("user2");
+
+    if (a=="disable"){
+        user2Input.style.opacity="0.4";
+        user2Input.value="Computer";
+        user2Input.disabled = true;
+}else {
+        user2Input.style.opacity="1";
+        user2Input.value="User2";
+        user2Input.disabled = false;
+
+    }
+}
+
+

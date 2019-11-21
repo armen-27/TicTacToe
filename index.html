@@ -6,8 +6,25 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div id="setting">
+    <form name="myForm">
+    <input type="text" name="user1" placeholder="User 1 Name" value="User1">
+    <input type="text" id="user2" name="user2" placeholder="User 2 Name" value="User2">
+
+            <div class="toggle">
+                <input type="radio" name="sizeBy" value="friend" id="friend" onclick="inputDisable('enable')" checked="checked" />
+                <label for="friend">Play with friend</label>
+                <input type="radio" name="sizeBy" value="computer" onclick="inputDisable('disable')" id="comp" />
+                <label for="comp">Play with computer </label>
+            </div>
+
+        <button class="playGame" type="button" onclick="getUser()">Play Game</button>
+
+    </form>
+</div>
+
+<div id="head">
 <h1 id="text">Play Game</h1>
-<div class="head">
 <div id="ticTac">
     <div onclick="cheking(this)" id="div1"><p></p></div>
     <div onclick="cheking(this)" id="div2"><p></p></div>
@@ -21,16 +38,14 @@
 
 </div>
 
-<div class="buttons">
-    <div class="resultDiv">
-        <h1 id="result">X:0 / O:0</h1>
+<div class="resultDiv">
+<!--    <div class="resultDiv">-->
+        <h1 id="result"></h1>
 
-    </div>
+<!--    </div>-->
 
-    <div>
-        <button onclick="reset()">Restart</button>
-        <button>Play with computer</button>
-    </div>
+        <button onclick="reset('all')">Restart</button>
+<!--        <button id="computer" onclick="playComp()">Play with computer</button>-->
 
 </div>
 </div>
